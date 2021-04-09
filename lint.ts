@@ -42,11 +42,6 @@ function createSelectionCard(e, originLanguage, destinationLanguage, inputText, 
   //Buttons section
   builder.addSection(CardService.newCardSection()
     .addWidget(CardService.newButtonSet()
-      // .addButton(CardService.newTextButton()
-      //   .setText('Lint')
-      //   .setTextButtonStyle(CardService.TextButtonStyle.FILLED)
-      //   .setOnClickAction(CardService.newAction().setFunctionName('translateText'))
-      //   .setDisabled(false))
       .addButton(CardService.newTextButton()
         .setText('Clear')
         .setOnClickAction(CardService.newAction().setFunctionName('clearText'))
@@ -54,25 +49,6 @@ function createSelectionCard(e, originLanguage, destinationLanguage, inputText, 
 
   return builder.build();
 
-}
-
-/**
- * Helper function to generate the drop down language menu. It checks what language the user had selected.
- * @param {String} fieldName
- * @param {String} fieldTitle
- * @param {String} previousSelected The language the user previously had selected.
- * @return {CardService.SelectionInput} The card to show to the user.
- */
-function generateLanguagesDropdown(fieldName, fieldTitle, previousSelected) {
-  var selectionInput = CardService.newSelectionInput().setTitle(fieldTitle)
-    .setFieldName(fieldName)
-    .setType(CardService.SelectionInputType.DROPDOWN);
-
-  LANGUAGE_MAP.forEach((language, index, array) => {
-    selectionInput.addItem(language.text, language.val, language.val == previousSelected);
-  })
-
-  return selectionInput;
 }
 
 /**
